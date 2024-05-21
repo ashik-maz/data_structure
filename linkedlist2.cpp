@@ -1,10 +1,11 @@
 #include <iostream>
 using namespace std;
 
-struct Node
+class Node
 {
-    int data;
-    Node *next;
+    public:
+        int data;
+        Node *next;
 };
 
 void print(Node *head)

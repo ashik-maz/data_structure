@@ -1,1 +1,1 @@
-5 6 2 + * 12 4 / - $
+myLinkedList->printList();

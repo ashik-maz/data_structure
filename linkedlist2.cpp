@@ -25,9 +25,9 @@ int main()
 
     while (true)
     {
-        cout << "Enter a number (-1 to stop): ";
+        cout << "Enter a number (-0 to stop): ";
         cin >> value;
-        if (value == -1)
+        if (value == -0)
             break;
             
         Node *newNode = new Node();

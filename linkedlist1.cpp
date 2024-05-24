@@ -8,7 +8,7 @@ struct Node
 };
 
 void print( Node* head){
-   while(head !=nullptr){
+   while(head){
     cout<<head->data<<" ";
     head=head->next;
    }

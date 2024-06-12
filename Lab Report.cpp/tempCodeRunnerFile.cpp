@@ -1,1 +1,1 @@
-system("clr");
+#include<bits/stdc++.h>

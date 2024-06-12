@@ -1,3 +1,7 @@
+
+// also print reverse order
+//delete all specific data
+
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -75,7 +79,7 @@ public:
 
     void deleteHead() {
         if (head == nullptr) {
-            cout << "List is empty\n";
+            cout << "List is empty you can't delete\n";
             return;
         }
         Node* temp = head;
@@ -85,7 +89,7 @@ public:
 
     void deleteTail() {
         if (head == nullptr) {
-            cout << "List is empty\n";
+            cout << "List is empty you can't delete\n";
             return;
         }
         if (head->next == nullptr) {
@@ -103,7 +107,7 @@ public:
 
     void deleteIndex(int index) {
         if (head == nullptr) {
-            cout << "List is empty\n";
+            cout << "List is empty you can't delete\n";
             return;
         }
         if (index == 0) {
@@ -125,7 +129,7 @@ public:
 
     void deleteNode(int value) {
         if (head == nullptr) {
-            cout << "List is empty\n";
+            cout << "List is empty you can't delete\n";
             return;
         }
         if (head->data == value) {

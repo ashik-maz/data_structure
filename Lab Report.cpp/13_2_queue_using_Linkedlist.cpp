@@ -109,6 +109,19 @@ public:
     }
 
 
+    Type operator[](int index){
+        if(index<0 || index >=size()){
+            cout<<"Out of Range !";
+        }
+
+        Node* temp= Head;
+        for(int i=0; i<index; i++){
+            temp=temp->next;
+        }
+        return temp->value;
+    }
+    
+
 };
 
 int main()
@@ -124,13 +137,17 @@ int main()
 
     cout << "size=" << qu.size()<<"\n";
     cout << "Front=" << qu.front()<<"\n";
-    cout << "back=" << qu.back()<<"\n"<<"Queue Element: ";
+    cout << "back=" << qu.back()<<"\n";
 
-    while(qu.size() !=0){
-        cout<<qu.front()<<" ";
-        qu.popfront();
+    cout<<"Queue Element: ";
+    for(int i=0;i<qu.size();i++){
+        cout<<qu[i]<<" ";
     }
-
-
+    
+    // while(qu.size() !=0){
+    //     cout<<qu.front()<<" ";
+    //     qu.popfront();
+    // }
+    
     return 0;
 }

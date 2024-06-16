@@ -61,6 +61,8 @@ public:
         if (Head->next == nullptr)
         {
             delete Head;
+            Head = nullptr;
+            return
         }
 
         Node *temp;
@@ -133,8 +135,6 @@ int main()
     qu.pushback(3);
     qu.pushfront(19);
 
-   
-
     cout << "size=" << qu.size()<<"\n";
     cout << "Front=" << qu.front()<<"\n";
     cout << "back=" << qu.back()<<"\n";
@@ -144,10 +144,6 @@ int main()
         cout<<qu[i]<<" ";
     }
     
-    // while(qu.size() !=0){
-    //     cout<<qu.front()<<" ";
-    //     qu.popfront();
-    // }
     
     return 0;
 }

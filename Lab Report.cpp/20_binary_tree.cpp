@@ -2,7 +2,6 @@
 using namespace std;
 
 class Binarytree{
-    private:
     struct Node
     {
         int data;

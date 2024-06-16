@@ -1,44 +1,57 @@
-///Implementation of Stack using C++
-
 #include <iostream>
-
 using namespace std;
 
 template <typename Type>
-class Stack {
-    int MAX_SIZE = 1e6;
-    int last = -1;
-    Type *arr = new Type[MAX_SIZE];
-public:
-    void push(Type val) {
+class Stack{
+    int MAX_SIZE=1e6;
+    int last=-1;
+    Type *arr =new Type[MAX_SIZE];
+
+    public:
+    void push(Type value){
         ++last;
-        arr[last] = val;
+        arr[last]=value;
     }
-    void pop() {
+    void pop(){
         --last;
     }
-    Type top() {
+    Type top(){
         return arr[last];
     }
-    int size() {
+    int size(){
         return last+1;
     }
-    bool empty() {
-        if (last == -1) return true;
+
+    bool empty(){
+        if(last==-1) return true;
         return false;
+    }
+
+    Type operator[](int index){
+        if(index<0 || index>=last){
+            cout<<"Out of range !";
+        }
+        return arr[index];
     }
 };
 
-int main() {
-    Stack <int> S;
-    S.push(1);
-    S.push(2);
-    S.push(3);
-    S.push(4);
-    cout << "Size is: " << S.size() << "\n";
-    cout << "Elements are:\n";
-    while (!S.empty()) {
-        cout << S.top() << "\n";
-        S.pop();
+int main(){
+    Stack <int> st;
+    st.push(1);
+    st.push(19);
+    st.push(13);
+    st.push(32);
+    st.push(33);
+    st.pop();
+    cout<<"size of Stack= "<<st.size()<<"\n";
+
+
+    cout<<st[2];
+
+
+    cout<<"element Are: ";
+    while(!st.empty()){
+        cout<<st.top()<<" ";
+        st.pop();
     }
 }

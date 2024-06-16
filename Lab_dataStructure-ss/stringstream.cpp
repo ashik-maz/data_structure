@@ -7,7 +7,7 @@ int main()
     stringstream ss(str);
     string str2;
     while(ss>> str2)
-        cout<<str2<<" ";
+        cout<<str2<<"\n";
 }
 
 

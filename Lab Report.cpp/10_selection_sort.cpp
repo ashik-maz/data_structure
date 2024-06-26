@@ -19,8 +19,8 @@ void selectionSort(int *array, int size){
 }
 int main(){
    int n;
-   int arr[n];
    cin>>n;
+   int arr[n];
    for(int i=0;i<n;i++){
        cin>>arr[i];
    }

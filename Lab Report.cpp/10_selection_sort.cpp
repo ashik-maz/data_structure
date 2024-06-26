@@ -1,21 +1,36 @@
-#include<bits/stdc++.h>
+// Selection sort
+#include<iostream>
 using namespace std;
-vector<int> selection(vector<int>&v){
-    for(int i=0;i<v.size();++i){
-        int minIndex=i;
-        for(int j=i+1;j<v.size();++j){
-            if(v[j]<v[minIndex]) minIndex=j;   
-        }
-        swap(v[minIndex],v[i]);
-    }
-    return v;
+void swapping(int &a, int &b) {
+   int temp;
+   temp = a;
+   a = b;
+   b = temp;
 }
-int main()
-{
-    int n;cin>>n;
-    vector<int>v(n);
-    for(auto &i:v) cin>>i;
-    selection(v);
-    for(auto &i:v) cout<<i<<" ";
-    return 0;
+void selectionSort(int *array, int size){
+   int i, j, imin;
+   for(i = 0; i<size-1; i++) {
+      imin = i;
+      for(j = i+1; j<size; j++)
+         if(array[j] < array[imin])
+            imin = j;
+      swap(array[i], array[imin]);
+   }
+}
+int main(){
+   int n;
+   int arr[n];
+   cin>>n;
+   for(int i=0;i<n;i++){
+       cin>>arr[i];
+   }
+   cout << "Array before Sorting: ";
+   for(int i = 0; i<n; i++)
+      cout << arr[i] << " ";
+   cout << endl;
+   selectionSort(arr, n);
+   cout << "Array after Sorting: ";
+   for(int i = 0; i<n; i++)
+      cout << arr[i] << " ";
+   cout << endl;
 }

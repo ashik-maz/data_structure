@@ -43,9 +43,6 @@ class vector{
             Node *temp=Head;
             Head=nullptr;
             delete temp;
-            size()--;
-            return;
-
         }
         else {
             Node *temp=Head;
@@ -54,7 +51,6 @@ class vector{
             }
             delete temp->next;
             temp->next=nullptr;
-            size()--;
         }
     }
 
@@ -70,8 +66,7 @@ class vector{
 
     Type operator [](int index){
         if(index<0 || index>=size()){
-            cout<<"Invalid index !\n";
-            
+            throw out_of_range("Invalid index!");     
         }
         else{
             Node* temp=Head;
@@ -79,9 +74,7 @@ class vector{
                 temp=temp->next;
             }
             return temp->value;
-        }
-        
-        
+        } 
     }
 
 };
@@ -90,9 +83,17 @@ int main(){
     v.pushback(1);
     v.pushback(2);
     v.pushback(3);
- 
+
+    v.pop();
+    v.pop();
+    v.pop();
+    v.pop();
+
+    //cout<<v[0]<<'\n';
+    //cout<<v[2]<<'\n';
+   // cout<<v[3]<<'\n';
     cout<<"\nvector size:"<<v.size();
-    cout<<"\nvector element:";
+    if(v.size())cout<<"\nvector element:";
 
     for(int i=0;i<v.size();i++){
         cout<<v[i]<<" ";

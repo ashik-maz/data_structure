@@ -18,9 +18,9 @@ void selectionSort(int *array, int size){
    }
 }
 int main(){
-   int n;
+   int n;cout<<"Enter Array Size: ";
    cin>>n;
-   int arr[n];
+   int *arr=new int[n];
    for(int i=0;i<n;i++){
        cin>>arr[i];
    }

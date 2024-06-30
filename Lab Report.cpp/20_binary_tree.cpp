@@ -2,7 +2,6 @@
 using namespace std;
 
 class BinarySearchTree{
-
     struct Node{
         int value;
         Node* left;
@@ -23,34 +22,34 @@ class BinarySearchTree{
         root=nullptr;
     }
 
-    bool insert(int value){
+    void insert(int value) {
         Node* newNode = new Node(value);
-        if(root==nullptr){
-            root=newNode;
-            return true;
+        if (root == nullptr) {
+            root = newNode;
+            return;
         }
 
-        Node* temp=root;
-        while(true){
-            if(newNode->value==temp->value){
-                return false;
+        Node* temp = root;
+        while (true) {
+            if (newNode->value == temp->value) {
+                // Value already exists, do nothing
+                delete newNode; // Free the memory allocated for the new node
+                return;
             }
-            if(newNode->value < temp->value){
-                if(temp->left==nullptr){
-                    temp->left=newNode;
-                    return true;
+            if (newNode->value < temp->value) {
+                if (temp->left == nullptr) {
+                    temp->left = newNode;
+                    return;
                 }
-                temp=temp->left;
-            }
-            else{
-                if(temp->right==nullptr){
-                    temp->right=newNode;
-                    return true;
+                temp = temp->left;
+            } else {
+                if (temp->right == nullptr) {
+                    temp->right = newNode;
+                    return;
                 }
-                temp=temp->right;
+                temp = temp->right;
             }
         }
-        
     }
 
     void inorderTraversal(Node* current){
@@ -88,6 +87,23 @@ class BinarySearchTree{
         cout<<endl;
     }
 
+    //contains function(if you need)
+    // bool contains(int value){
+    //     Node* temp;
+    //     while(temp !=nullptr){
+    //         if(value < temp->value){
+    //             temp=temp->left;
+    //         }
+    //         else if(value > temp->value){
+    //             temp=temp->right;
+    //         }
+    //         else{
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
 
 };
 
@@ -115,4 +131,5 @@ int main(){
             tree.insert(value);
         }
     }
+
 }

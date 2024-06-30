@@ -2,20 +2,26 @@
 // also print reverse order
 //delete all specific data
 
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 class LinkedList {
     struct Node {
         int data;
         Node* next;
-        Node(int val) : data(val), next(nullptr) {}
+        
+        Node(int val){
+          data=val;
+          next=nullptr;
+        }
     };
 
     Node* head;
 
 public:
-    LinkedList() : head(nullptr) {}
+    LinkedList() {
+        head=nullptr;
+    }
 
     void printLinkedlist() {
         Node* temp = head;

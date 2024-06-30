@@ -1,44 +1,63 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
-class Binarytree{
-    struct Node
-    {
-        int data;
-        Node *left;
-        Node *right;
-        Node(int value): data(value), left(nullptr), right(nullptr){}
-    };
+class Node{
+        public:
+        int value;
+        Node* left;
+        Node* right;
+
+        Node(int value){
+            this->value=value;
+            left=nullptr;
+            right=nullptr;
+        }
+};
+
+class BinarySearchTree{
     
+    Node* root;
+
     public:
 
-    Node *insertrecursive(Node *current, int value){
-        if(current==nullptr){
-            return new Node(value);
-        }
-
-        if(value < current->data){
-            current->left=insertrecursive(current->left, value);
-        }
-        else if(value > current->data){
-            current->right=insertrecursive(current->right, value);
-        }
-
-        return current;
-
+    BinarySearchTree(){
+        root=nullptr;
     }
 
-    Node* root;
-    Binarytree() : root(nullptr){}
-    
-    void insert(int value){
-        root = insertrecursive(root, value);
+    bool insert(int value){
+        Node* newNode = new Node(value);
+        if(root==nullptr){
+            root=newNode;
+            return true;
+        }
+
+        Node* temp=root;
+        while(true){
+            if(newNode->value==temp->value){
+                return false;
+            }
+            if(newNode->value < temp->value){
+                if(temp->left==nullptr){
+                    temp->left=newNode;
+                    return true;
+                }
+                temp=temp->left;
+            }
+            else{
+                if(temp->right==nullptr){
+                    temp->right=newNode;
+                    return true;
+                }
+                temp=temp->right;
+            }
+        }
+        
     }
 
     void inorderTraversal(Node* current){
-        if(current !=nullptr){
+        if(current != nullptr){
             inorderTraversal(current->left);
-            cout<<current->data<<" ";
+            cout<<current->value<<" ";
             inorderTraversal(current->right);
         }
     }
@@ -47,19 +66,54 @@ class Binarytree{
         inorderTraversal(root);
         cout<<endl;
     }
+    void preorderTraversal(Node* current){
+        if(current != nullptr){
+            cout<<current->value<<" ";
+            preorderTraversal(current->left);
+            preorderTraversal(current->right);
+        }
+    }
+    void preorderTraversal(){
+        preorderTraversal(root);
+        cout<<endl;
+    }
+    void postorderTraversal(Node* current){
+        if(current != nullptr){
+            postorderTraversal(current->left);
+            postorderTraversal(current->right);
+            cout<<current->value<<" ";
+        }
+    }
+    void postorderTraversal(){
+        postorderTraversal(root);
+        cout<<endl;
+    }
+
 
 };
 
+
 int main(){
-    Binarytree tree;
-    tree.insert(1);
-    tree.insert(6);
-    tree.insert(3);
-    tree.insert(4);
+    BinarySearchTree tree;
+    int value;
+    while (true)
+    {
+        cout << "Enter a number(0 to stop): ";
+        cin >> value;
+        if (value == 0)
+        {
+            cout<<"\nInorder Traversal of Binary Tree: ";
+            tree.inorderTraversal();
+            cout<<"\nPostorder Traversal of Binary Tree: ";
+            tree.postorderTraversal();
+            cout<<"\npreorder Traversal of Binary Tree: ";
+            tree.preorderTraversal();
+            break;
+        }
 
-    cout<<"Inoderder Traversal of the binary tree: ";
-    tree.inorderTraversal();
-
-    return 0;
-
+        else
+        {
+            tree.insert(value);
+        }
+    }
 }

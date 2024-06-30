@@ -1,8 +1,9 @@
 #include<iostream>
 using namespace std;
 
-class Node{
-        public:
+class BinarySearchTree{
+
+    struct Node{
         int value;
         Node* left;
         Node* right;
@@ -13,8 +14,6 @@ class Node{
             right=nullptr;
         }
 };
-
-class BinarySearchTree{
     
     Node* root;
 

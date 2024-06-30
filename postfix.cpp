@@ -39,6 +39,7 @@ int main()
             if(s[i] == '+'){
                 push(b+a);
             }
+            
             else if(s[i] == '-'){
                 push(b-a);
             }

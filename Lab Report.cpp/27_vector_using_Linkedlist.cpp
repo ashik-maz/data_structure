@@ -84,10 +84,10 @@ int main(){
     v.pushback(2);
     v.pushback(3);
 
-    v.pop();
-    v.pop();
-    v.pop();
-    v.pop();
+    // v.pop();
+    // v.pop();
+    // v.pop();
+    // v.pop();
 
     //cout<<v[0]<<'\n';
     //cout<<v[2]<<'\n';

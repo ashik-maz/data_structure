@@ -1,4 +1,6 @@
 #include <iostream>
+#include <queue>
+
 using namespace std;
 
 class BinarySearchTree {
@@ -40,7 +42,8 @@ public:
                     return;
                 }
                 temp = temp->left;
-            } else {
+            } 
+            else {
                 if (temp->right == nullptr) {
                     temp->right = newNode;
                     return;
@@ -49,6 +52,7 @@ public:
             }
         }
     }
+
 
     void inorderTraversal(Node* current) {
         if (current != nullptr) {
@@ -146,6 +150,27 @@ public:
             cout << "\nNode not found." << endl;
         }
     }
+// //bfs inorder
+//     void BFS(){
+//         cout<<"BFS: ";
+//         queue<Node*>q;
+//         q.push(root);
+
+//         while(q.size() > 0){
+//             Node* temp = q.front();
+//             q.pop();
+//             cout<<temp->value<<" ";
+
+//             if(temp->left != nullptr){
+//                 q.push(temp->left);
+//             }
+//             if(temp->right != nullptr){
+//                 q.push(temp->right);
+//             }
+//         }
+//         cout<<"\n";
+//     }
+
 };
 
 int main() {

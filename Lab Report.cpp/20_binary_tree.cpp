@@ -12,7 +12,7 @@ class BinarySearchTree{
             left=nullptr;
             right=nullptr;
         }
-};
+    };
     
     Node* root;
 

@@ -64,50 +64,6 @@ class Graph {
             return true;
         }
 
-       void BFS(string startNode) {
-        for (auto& node : adjList) {
-            visit[node.first] = false;
-        }
-        queue<string> q;
-        q.push(startNode);
-        visit[startNode] = true;
-        cout << "BFS traversal starting from node " << startNode << " : ";
-        while (!q.empty()) {
-            string node = q.front();
-            q.pop();
-            cout << node << " ";
-            for (auto child : adjList[node]) {
-                if (!visit[child]) {
-                    q.push(child);
-                    visit[child] = true;
-                }
-            }
-        }
-        cout << endl;
-    }
-
-    void DFS(string startNode) {
-        for (auto& node : adjList) {
-            visit[node.first] = false;
-        }
-        stack<string> s;
-        s.push(startNode);
-        cout << "DFS traversal starting from node " << startNode << " : ";
-        while (!s.empty()) {
-            string node = s.top();
-            s.pop();
-            if (!visit[node]) {
-                cout << node << " ";
-                visit[node] = true;
-                for (auto child : adjList[node]) {
-                    if (!visit[child]) {
-                        s.push(child);
-                    }
-                }
-            }
-        }
-        cout << endl;
-    }
 
 };
 
@@ -145,8 +101,5 @@ int main() {
     myGraph->removeVertex("D");
     cout<<"New Graph: \n";
     myGraph->printGraph();
-
-    myGraph->BFS("A");
-    myGraph->DFS("A");
        
 }

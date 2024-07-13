@@ -120,9 +120,13 @@ int main() {
     myGraph->addVertex("B");
     myGraph->addVertex("C");
     myGraph->addVertex("D");
+    myGraph->addVertex("E");
 
     /*
 
+           E
+        /     \
+     /           \
     A--------------B           A-------------B
     | \            |           |
     |    \         |           |
@@ -136,17 +140,24 @@ int main() {
     myGraph->addEdge("A","C");
     myGraph->addEdge("A","D");
     myGraph->addEdge("B","D");
-    myGraph->addEdge("C","D");
+    myGraph->addEdge("C","D"); 
+    myGraph->addEdge("A","E"); 
+    myGraph->addEdge("E","B"); 
+
+
 
 
     cout<<"Old Graph: \n";
     myGraph->printGraph();
 
+    myGraph->BFS("A");
+    myGraph->DFS("A");
+
     myGraph->removeVertex("D");
+    myGraph->removeVertex("E");
     cout<<"New Graph: \n";
     myGraph->printGraph();
 
-    myGraph->BFS("A");
-    myGraph->DFS("A");
+    
        
 }

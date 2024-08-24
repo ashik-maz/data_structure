@@ -15,7 +15,6 @@ class Graph {
         unordered_map<string, bool > visit;
     
     public:
-
         bool addVertex(string vertex) {
             if (adjList.count(vertex) == 0) {
                 adjList[vertex];

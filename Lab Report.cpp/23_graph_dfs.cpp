@@ -38,10 +38,12 @@ int main() {
         cin >> source >> destination;
 
         Node* newNode1 = new Node(destination);
+        Node* newNode2 = new Node(source);
+
+
         newNode1->next = graph[source];
         graph[source] = newNode1;
-
-        Node* newNode2 = new Node(source);
+        
         newNode2->next = graph[destination];
         graph[destination] = newNode2;
     }

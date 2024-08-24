@@ -19,7 +19,7 @@ bool itemcount(vector<int> list1, vector<int>list2){
 
 int main(){
     vector<int>list1 {1,2,3};
-    vector<int>list2 {11,12,3};
+    vector<int>list2 {11,12,4,5,1};
 //if find any value, it's return true;
     cout<<itemcount(list1,list2);
 }

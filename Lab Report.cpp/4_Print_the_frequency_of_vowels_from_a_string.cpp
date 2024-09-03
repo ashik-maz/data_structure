@@ -1,10 +1,11 @@
 //4.Print the frequency of vowels from a string
 #include <iostream>
+#include <string>
 using namespace std;
-void countVowelFrequencies(char input[], int length) {
-    int vowelFreq[5] = {0}; 
-    for (int i = 0; i < length; ++i) {
-        char ch = input[i];
+
+void countVowelFrequencies(const string &input) {
+    int vowelFreq[5] = {0};
+    for (char ch : input) {
         if (ch >= 'A' && ch <= 'Z') {
             ch = ch + ('a' - 'A');
         }
@@ -25,15 +26,12 @@ void countVowelFrequencies(char input[], int length) {
 }
 
 int main() {
-    char input[100];
-    int length = 0;
+    string input;
 
     cout << "Enter a string: ";
-    char ch;
-    while (cin.get(ch) && ch != '\n') {
-        input[length++] = ch;
-    }
-    countVowelFrequencies(input, length);
+    getline(cin, input);  // Using getline to read the entire line
+
+    countVowelFrequencies(input);
 
     return 0;
 }
